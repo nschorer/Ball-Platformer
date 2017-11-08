@@ -14,7 +14,17 @@ public class LevelManager : MonoBehaviour {
     const int SPACE_START = 42;
 
 	public void ReloadLevel (){
-		LoadLevel(SceneManager.GetActiveScene().buildIndex);
+        if (SessionData.currentMode == SessionData.GameMode.Challenge) {
+            SessionData.numLives--;
+            if (SessionData.numLives <= 0) {
+                LoadStart();
+            }else {
+                LoadLevel(SceneManager.GetActiveScene().buildIndex);
+            }
+
+        } else {
+            LoadLevel(SceneManager.GetActiveScene().buildIndex);
+        }
 	}
 
 	public void LoadStart(){

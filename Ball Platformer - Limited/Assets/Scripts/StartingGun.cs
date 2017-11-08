@@ -21,6 +21,15 @@ public class StartingGun : MonoBehaviour {
         text.text = goText;
         ToggleTextVisibility(false);
 
+        Text levelTitle = GameObject.FindGameObjectWithTag("Level Title").GetComponent<Text>();
+        if (levelTitle != null) {
+            Color color = levelTitle.color;
+            color.a = 0f;
+            text.color = color;
+        }else {
+            Debug.LogError("Could not find level title");
+        }
+
         timerBP = GameObject.FindGameObjectWithTag("Timer").GetComponent<TimerBP>();
         if (timerBP == null) Debug.LogError("TimerBP has not been configured.");
 

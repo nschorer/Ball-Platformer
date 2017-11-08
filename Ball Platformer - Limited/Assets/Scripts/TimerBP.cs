@@ -19,13 +19,11 @@ public class TimerBP : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         if (timerActive)
         {
             timer += Time.deltaTime;
-            if (timer >= 1000f)
-            {
+            if (timer >= 1000f){
                 timer = 999.99f;
                 timerActive = false;
             }
@@ -33,18 +31,19 @@ public class TimerBP : MonoBehaviour
         }
     }
 
-    void UpdateText()
-    {
-        if (timerText.text != null) timerText.text = timer.ToString("n2");
+    void UpdateText(){
+        // We need to check this here in order to make sure that the timer doesn't increment after we ToggleTimer()
+        if (timerActive){
+            if (timerText.text != null) timerText.text = GetTime().ToString("n2");
+        }
     }
 
-    public void ToggleTimer(bool active)
-    {
+    public float ToggleTimer(bool active){
         timerActive = active;
+        return GetTime();
     }
 
-    public float GetTime()
-    {
+    public float GetTime(){
         return (Mathf.Floor(timer * 100f)) / 100f;
     }
 }

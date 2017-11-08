@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PauseBP : MonoBehaviour
-{
+public class PauseBP : MonoBehaviour{
 
     public Button[] pauseButtons;
     public MenuController menuController;
+    public Text pauseLevelTitle;
 
     private bool paused;
     private GameObject[] movingObjects;
@@ -19,15 +19,17 @@ public class PauseBP : MonoBehaviour
     private int selButtonIdx;
     private LevelManager levelManager;
 
+    private const int RESTART_IDX = 1;
+
     // Use this for initialization
-    void Start()
-    {
+    void Start(){
         paused = false;
         movingObjects = GameObject.FindGameObjectsWithTag("Moving");
         padObjects = GameObject.FindGameObjectsWithTag("Pad");
         player = GameObject.FindGameObjectWithTag("Player");
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         ShowPauseUI(false);
+        SetPauseLevelTitle();
         if (pauseButtons == null) Debug.LogError("Pause buttons are not set up.");
         if (menuController == null) Debug.LogError("Menu Controller is not set up.");
     }
@@ -55,6 +57,29 @@ public class PauseBP : MonoBehaviour
         FreezeOtherObjects(pauseOn);
     }
 
+    void HandleRestartButton() {
+        if (SessionData.currentMode == SessionData.GameMode.Challenge) {
+            pauseButtons[RESTART_IDX].GetComponentInChildren<Text>().text = "Restart (-1)";
+
+            if (SessionData.numLives <= 1) {
+                ButtonHandler.DisableButton(pauseButtons[RESTART_IDX]);
+            }
+        }
+        // Outside of challenge mode, it should be set to "Restart" by default and is always selectable.
+    }
+
+    void SetPauseLevelTitle() {
+        Text levelTitle = GameObject.FindGameObjectWithTag("Level Title").GetComponent<Text>();
+         
+        if (pauseLevelTitle != null && levelTitle != null) {
+            Color color = levelTitle.color;
+            string title = levelTitle.text;
+
+            pauseLevelTitle.text = title;
+            pauseLevelTitle.color = color;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -77,16 +102,16 @@ public class PauseBP : MonoBehaviour
         //}
 
         //Handle controller inputs
-        if (menuController.Pause()) TogglePause(false);
-        else if (menuController.Up()){
-            ChangeSelectedButton(true);
-        }else if (menuController.Down()){
-            ChangeSelectedButton(false);
-        }else if (menuController.Submit()){
-            EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
-        }else if (menuController.Cancel()){
-            TogglePause(false);
-        }
+        //if (menuController.Pause()) TogglePause(false);
+        //else if (menuController.Up()){
+        //    ChangeSelectedButton(true);
+        //}else if (menuController.Down()){
+        //    ChangeSelectedButton(false);
+        //}else if (menuController.Submit()){
+        //    EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+        //}else if (menuController.Cancel()){
+        //    TogglePause(false);
+        //}
 
     }
 
@@ -118,15 +143,15 @@ public class PauseBP : MonoBehaviour
         else Debug.LogError("PlayerController doesn't have IMovingObject attached.");
     }
 
-    void ChangeSelectedButton(bool pressedUp){
-        if (pauseButtons != null)
-        {
-            selButtonIdx += pressedUp ? -1 : 1;
-            if (selButtonIdx < 0) selButtonIdx = pauseButtons.Length - 1;
-            else if (selButtonIdx >= pauseButtons.Length) selButtonIdx = 0;
-            EventSystem.current.SetSelectedGameObject(pauseButtons[selButtonIdx].gameObject);
-        }
-    }
+    //void ChangeSelectedButton(bool pressedUp){
+    //    if (pauseButtons != null)
+    //    {
+    //        selButtonIdx += pressedUp ? -1 : 1;
+    //        if (selButtonIdx < 0) selButtonIdx = pauseButtons.Length - 1;
+    //        else if (selButtonIdx >= pauseButtons.Length) selButtonIdx = 0;
+    //        EventSystem.current.SetSelectedGameObject(pauseButtons[selButtonIdx].gameObject);
+    //    }
+    //}
 
     public void ResumeButtonPressed()
     {
