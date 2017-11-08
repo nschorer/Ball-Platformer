@@ -14,4 +14,4 @@ Controls with XBox One controller:
 left joystick - move
 right joystick - move camera
 menu button - pause
-A - submit
+A button - submit
