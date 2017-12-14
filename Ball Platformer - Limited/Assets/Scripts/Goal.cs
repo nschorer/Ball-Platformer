@@ -28,7 +28,7 @@ public class Goal : MonoBehaviour {
 
         timerBP = GameObject.FindGameObjectWithTag("Timer").GetComponent<TimerBP>();
         bestTime = GameObject.FindGameObjectWithTag("Best Time").GetComponent<BestTime>();
-        gameData = GameObject.FindObjectOfType<GameData>().GetComponent<GameData>();
+        gameData = GameData.currentGameFile;
 	}
 
 	void Update (){
@@ -67,7 +67,7 @@ public class Goal : MonoBehaviour {
                 SessionData.currentLevel = 0;
                 if (SessionData.currentMode == SessionData.GameMode.Challenge) gameData.clearChallenge();
                 gameData.Save();
-                levelManager.LoadStart();
+                levelManager.LoadHub();
             }
             else{
                 Debug.LogError("Could not figure out which level to load.");

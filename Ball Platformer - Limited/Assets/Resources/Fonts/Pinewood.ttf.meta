@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: fa4929106c6616e43b63cb361aa35eb6
+timeCreated: 1511886893
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Pinewood
+  fontNames:
+  - Pinewood
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

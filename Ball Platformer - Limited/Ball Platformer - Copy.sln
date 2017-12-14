@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ball Platformer - Copy", "Ball Platformer - Copy.csproj", "{69316CF5-F540-4CA2-D8B7-8E690EC19146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ball Platformer - Copy.Plugins", "Ball Platformer - Copy.Plugins.csproj", "{54D5793D-329F-70C8-9F6F-9F14857E7BE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ball Platformer - Copy.Editor.Plugins", "Ball Platformer - Copy.Editor.Plugins.csproj", "{3B2F16F2-7B79-FB08-FE68-868F75328998}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ball Platformer - Copy.Editor", "Ball Platformer - Copy.Editor.csproj", "{1DA237C7-D491-DE0B-102E-5DF2B4A7779A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69316CF5-F540-4CA2-D8B7-8E690EC19146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69316CF5-F540-4CA2-D8B7-8E690EC19146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69316CF5-F540-4CA2-D8B7-8E690EC19146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69316CF5-F540-4CA2-D8B7-8E690EC19146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54D5793D-329F-70C8-9F6F-9F14857E7BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54D5793D-329F-70C8-9F6F-9F14857E7BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54D5793D-329F-70C8-9F6F-9F14857E7BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54D5793D-329F-70C8-9F6F-9F14857E7BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B2F16F2-7B79-FB08-FE68-868F75328998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B2F16F2-7B79-FB08-FE68-868F75328998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B2F16F2-7B79-FB08-FE68-868F75328998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B2F16F2-7B79-FB08-FE68-868F75328998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DA237C7-D491-DE0B-102E-5DF2B4A7779A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA237C7-D491-DE0B-102E-5DF2B4A7779A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA237C7-D491-DE0B-102E-5DF2B4A7779A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA237C7-D491-DE0B-102E-5DF2B4A7779A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

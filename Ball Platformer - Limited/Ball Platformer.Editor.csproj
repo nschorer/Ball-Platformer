@@ -131,10 +131,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\InControl\Editor\InControlBuilder.cs" />
+    <Compile Include="Assets\InControl\Editor\InControlManagerEditor.cs" />
+    <Compile Include="Assets\InControl\Editor\InputManagerAssetGenerator.cs" />
+    <Compile Include="Assets\InControl\Editor\ProfileListGenerator.cs" />
+    <Compile Include="Assets\InControl\Editor\ReorderableList\GenericListAdaptor.cs" />
+    <Compile Include="Assets\InControl\Editor\ReorderableList\Internal\GUIHelper.cs" />
+    <Compile Include="Assets\InControl\Editor\ReorderableList\Internal\ReorderableListResources.cs" />
+    <Compile Include="Assets\InControl\Editor\ReorderableList\IReorderableListAdaptor.cs" />
+    <Compile Include="Assets\InControl\Editor\ReorderableList\ReorderableListControl.cs" />
+    <Compile Include="Assets\InControl\Editor\ReorderableList\ReorderableListFlags.cs" />
+    <Compile Include="Assets\InControl\Editor\ReorderableList\ReorderableListGUI.cs" />
+    <Compile Include="Assets\InControl\Editor\ReorderableList\SerializedPropertyAdaptor.cs" />
     <Compile Include="Assets\TornadoBanditsStudio\Editor\TBS_EditorInitializer.cs" />
     <Compile Include="Assets\TornadoBanditsStudio\Editor\TBS_PresentationWindow.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\InControl\README\README.txt" />
+    <None Include="Assets\Resources\Fonts\HFF Young Wanna.txt" />
+    <None Include="Assets\Resources\Fonts\My Underwood Licence.txt" />
+    <None Include="Assets\Resources\Fonts\OFL_Shojumaru.txt" />
+    <None Include="Assets\Resources\Fonts\OFL_SpicyRice.txt" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

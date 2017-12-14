@@ -16,7 +16,7 @@ public class BestTime : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gameData = GameObject.FindObjectOfType<GameData>();
+        gameData = GameData.currentGameFile;
         bestTime = gameData.getBestTime();
         if (bestTime == 0f) bestTime = 1000f; //upper bound
         UpdateText();

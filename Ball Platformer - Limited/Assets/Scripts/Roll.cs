@@ -72,14 +72,8 @@ public class Roll : MonoBehaviour, IMovingObject {
                 }
     }
 
-    public void Rewind()
-    {
-        rewinding = true;
-    }
-
-    public void Unrewind()
-    {
-        rewinding = false;
+    public void RewindTime(bool rewindOn) {
+        rewinding = rewindOn;
     }
 
     public void PauseRB(bool pauseOn)

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class WorldEntrance : MonoBehaviour {
 
-    public enum World { Forest, Desert, Canyon, Island, Space};
+    public enum World { Hub, Forest, Desert, Canyon, Island, Space};
     public World loadWorld;
     public LevelManager levelManager;
     public LevelSelect levelSelect;

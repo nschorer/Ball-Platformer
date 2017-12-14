@@ -13,6 +13,9 @@ public class StartingGun : MonoBehaviour {
     private TimerBP timerBP;
     private PauseBP pauseBP;
     private bool isFirstFrame;
+    private Color lvlTitleColor;
+    private static MusicPlayer mPlayer;
+    private PlayerController player;
 
 	// Use this for initialization
 	void Start () {
@@ -23,9 +26,9 @@ public class StartingGun : MonoBehaviour {
 
         Text levelTitle = GameObject.FindGameObjectWithTag("Level Title").GetComponent<Text>();
         if (levelTitle != null) {
-            Color color = levelTitle.color;
-            color.a = 0f;
-            text.color = color;
+            lvlTitleColor = levelTitle.color;
+            lvlTitleColor.a = 0f;
+            text.color = lvlTitleColor;
         }else {
             Debug.LogError("Could not find level title");
         }
@@ -35,6 +38,11 @@ public class StartingGun : MonoBehaviour {
 
         pauseBP = GameObject.FindGameObjectWithTag("Pause").GetComponent<PauseBP>();
         if (pauseBP == null) Debug.LogError("PauseBP has not been configured.");
+
+        if (mPlayer == null) mPlayer = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicPlayer>();
+        if (mPlayer == null) Debug.LogError("MusicPlayer has not been configured.");
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         isFirstFrame = true;
 	}
@@ -63,5 +71,11 @@ public class StartingGun : MonoBehaviour {
         ToggleTextVisibility(true);
         timerBP.ToggleTimer(true);
         pauseBP.FreezeOtherObjects(false);
+        if (!mPlayer.IsPlaying()) mPlayer.Play();
+
+        GameObject obj = GameObject.FindGameObjectWithTag("Sound Fx");
+        SoundFx soundfx = null;
+        if (obj != null) soundfx = obj.GetComponent<SoundFx>();
+        if (soundfx != null) soundfx.LevelStart(player.transform.position);
     }
 }

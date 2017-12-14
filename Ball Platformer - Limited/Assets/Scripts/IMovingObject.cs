@@ -4,7 +4,6 @@ using UnityEngine;
 
 public interface IMovingObject
 {
-    void Rewind();
-    void Unrewind();
+    void RewindTime(bool rewindOn);
     void PauseRB(bool pauseOn);
 }

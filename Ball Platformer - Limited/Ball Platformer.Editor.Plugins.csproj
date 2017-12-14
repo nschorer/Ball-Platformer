@@ -135,6 +135,11 @@
     <Compile Include="Assets\Standard Assets\Editor\Water\Water4\WaterEditorUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\InControl\README\README.txt" />
+    <None Include="Assets\Resources\Fonts\HFF Young Wanna.txt" />
+    <None Include="Assets\Resources\Fonts\My Underwood Licence.txt" />
+    <None Include="Assets\Resources\Fonts\OFL_Shojumaru.txt" />
+    <None Include="Assets\Resources\Fonts\OFL_SpicyRice.txt" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

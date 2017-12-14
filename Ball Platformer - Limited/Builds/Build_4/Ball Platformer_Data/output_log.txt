@@ -1,0 +1,61 @@
+Initialize engine version: 2017.1.0f3 (472613c02cf7)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon R9 200 Series (ID=0x6798)
+    Vendor:   ATI
+    VRAM:     3053 MB
+    Driver:   22.19.171.1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\UnityEngine.Timeline.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Nick\Documents\Unity\Ball Platformer\Builds\Build_4\Ball Platformer_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.022 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.270824 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 14ac -> priority: 1 
+  Thread -> id: 2318 -> priority: 1 
+Joystick connected ("Controller (Xbox One For Windows)").
+ 
+(Filename:  Line: 1351)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.054678 ms
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2230.
+Total: 0.795546 ms (FindLiveObjects: 0.105103 ms CreateObjectMapping: 0.039661 ms MarkObjects: 0.617068 ms  DeleteObjects: 0.033381 ms)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.515074 ms
+
+Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 1588.
+Total: 0.705316 ms (FindLiveObjects: 0.081967 ms CreateObjectMapping: 0.041314 ms MarkObjects: 0.464041 ms  DeleteObjects: 0.117662 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.015998 ms
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 2232.
+Total: 0.874539 ms (FindLiveObjects: 0.116010 ms CreateObjectMapping: 0.043297 ms MarkObjects: 0.655408 ms  DeleteObjects: 0.059161 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.559693 ms
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2230.
+Total: 0.888420 ms (FindLiveObjects: 0.129891 ms CreateObjectMapping: 0.040983 ms MarkObjects: 0.676561 ms  DeleteObjects: 0.040322 ms)
+

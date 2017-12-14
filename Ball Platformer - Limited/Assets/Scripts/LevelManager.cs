@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
-    const int GAME_START = 0;
+    const int TITLE = 0;
+    const int HUB = 1;
 	const int FOREST_START = 2;
-    const int DESERT_START = 12;
+    const int DESERT_START = 2;
     const int CANYON_START = 22;
     const int ISLAND_START = 32;
     const int SPACE_START = 42;
@@ -17,7 +18,7 @@ public class LevelManager : MonoBehaviour {
         if (SessionData.currentMode == SessionData.GameMode.Challenge) {
             SessionData.numLives--;
             if (SessionData.numLives <= 0) {
-                LoadStart();
+                LoadHub();
             }else {
                 LoadLevel(SceneManager.GetActiveScene().buildIndex);
             }
@@ -27,12 +28,28 @@ public class LevelManager : MonoBehaviour {
         }
 	}
 
-	public void LoadStart(){
-		LoadLevel(GAME_START);
+    public void LoadTitle() {
+        SessionData.currentAbility = SessionData.Ability.None;
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicPlayer>().SwitchSong(null, true);
+        Destroy(GameData.currentGameFile.gameObject);
+        LoadLevel(TITLE);
+    }
+
+    public void LoadHub(){
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicPlayer>().SwitchSong(WorldEntrance.World.Hub, true);
+		LoadLevel(HUB);
 	}
 
-	public void LoadNextLevel (){
-		LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+    public static bool IsTitle() {
+        return SceneManager.GetActiveScene().buildIndex == TITLE;
+    }
+
+    public static bool IsHub() {
+        return SceneManager.GetActiveScene().buildIndex == HUB;
+    }
+
+	public void LoadNextLevel (int incLevels = 1){
+		LoadLevel(SceneManager.GetActiveScene().buildIndex + incLevels);
 	}
 
 	public void LoadLevel(int levelIndex){
@@ -46,7 +63,8 @@ public class LevelManager : MonoBehaviour {
 	public string GetLoadingText (Goal.WhatToLoadNext whatNext){
 		string str = "";
 
-        if (whatNext == Goal.WhatToLoadNext.NextLevel) str = "Nice job!\nStarting next level in ";
+        if (SessionData.currentMode == SessionData.GameMode.Practice) str = "Restarting level in ";
+        else if (whatNext == Goal.WhatToLoadNext.NextLevel) str = "Nice job!\nStarting next level in ";
         else if (whatNext == Goal.WhatToLoadNext.Start) str = "Returning to Hub World in ";
 
 		return str;

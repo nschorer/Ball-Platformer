@@ -24,6 +24,8 @@ public class MovingPlatform : MonoBehaviour, IMovingObject {
     private Progress flightProgress;
     private float waitTimer;
     private bool paused;
+    private bool hasTrailRend;
+    private SoundFx soundfx;
 
 	void Start(){
 		tf = gameObject.transform;
@@ -40,6 +42,10 @@ public class MovingPlatform : MonoBehaviour, IMovingObject {
         rewinding = false;
         if (noLoop) flightProgress = Progress.AtStart;
         else flightProgress = Progress.Looping;
+
+        soundfx = GameObject.FindGameObjectWithTag("Sound Fx").GetComponent<SoundFx>();
+        TrailRenderer tr = GetComponent<TrailRenderer>();
+        if (tr != null) hasTrailRend = true;
 	}
 
 	// FixedUpdate is called once per frame
@@ -62,6 +68,8 @@ public class MovingPlatform : MonoBehaviour, IMovingObject {
         {
             if (isMoving)
             {
+                soundfx.MovingPlat(transform.position);
+
                 if (flightProgress == Progress.AtStart ||
                     flightProgress == Progress.AtEnd)
                 {
@@ -217,14 +225,10 @@ public class MovingPlatform : MonoBehaviour, IMovingObject {
         start = temp;
     }
 
-    public void Rewind(){
-        ReverseCourse();
-        rewinding = true;
-    }
-
-    public void Unrewind(){
-        ReverseCourse();
-        rewinding = false;
+    public void RewindTime(bool rewindOn) {
+        // Don't reverse course if we call RewindingTime(true) twice
+        if (rewindOn != rewinding) ReverseCourse();
+        rewinding = rewindOn;
     }
 
     public void PauseRB(bool pauseOn){

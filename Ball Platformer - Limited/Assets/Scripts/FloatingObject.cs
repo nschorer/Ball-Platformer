@@ -11,9 +11,8 @@ public class FloatingObject : MonoBehaviour, IMovingObject {
     public bool upFirst = true;
 
     private Vector3 startPos;
-    private float startRot;
+    private Vector3 startRot;
     private float maxRotation;
-    private bool isMoving;
     private bool rewinding;
     private float fakeTime;
     private bool paused;
@@ -22,10 +21,8 @@ public class FloatingObject : MonoBehaviour, IMovingObject {
 
     void Start(){
 
-        if (oscHeight == 0f) isMoving = false;
-
         startPos = transform.position;
-        startRot = transform.eulerAngles.y;
+        startRot = transform.eulerAngles;
 
         System.Random rand = new System.Random();
         maxRotation = BASE_MAX_ROTATION + (0.25f * BASE_MAX_ROTATION * (float)(rand.NextDouble()*2 - 1));
@@ -53,15 +50,11 @@ public class FloatingObject : MonoBehaviour, IMovingObject {
     // Makes the object rotate slightly as it moves up and down
     void Twist(){
         float angleDegrees = Mathf.Sin(fakeTime * oscSpeed * 4 / 5 + phaseShift) * maxRotation;
-        transform.rotation = Quaternion.Euler(0f, startRot + angleDegrees, 0f);
+        transform.rotation = Quaternion.Euler(startRot.x, startRot.y + angleDegrees, startRot.z);
     }
 
-    public void Rewind(){
-        rewinding = true;
-    }
-
-    public void Unrewind(){
-        rewinding = false;
+    public void RewindTime(bool rewindOn){
+        rewinding = rewindOn;
     }
 
     public void PauseRB(bool pauseOn)

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using InControl;
 
 public class CameraController : MonoBehaviour {
 
 	public float turnSpeed = 3f;
+    public static CameraController instance;
 
     private static Vector3 START_OFFSET = new Vector3(0f, 9.5f, -10f);
     private const float START_TURN_COEFFICIENT = 0.05f;
@@ -12,16 +14,33 @@ public class CameraController : MonoBehaviour {
     private GameObject player;
     private Vector3 offset;
     private float hCoefficient, vCoefficient;
+    private float camSens;
+    private bool firstFrame;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake() {
+        instance = this;
+    }
+
+    // Use this for initialization
+    void Start () {
 		// Camera stays in line with the player
 		player = GameObject.FindGameObjectWithTag("Player");
         offset = START_OFFSET;
         hCoefficient = ResetTurnCoefficient();
         vCoefficient = ResetTurnCoefficient();
+
+        // The GameData hasn't been loaded yet. So we will wait until the first frame to set the sensitivity.
+        camSens = 1f;
+        firstFrame = true;
     }
-	
+
+    void Update() {
+        if (firstFrame) {
+            SetCameraSensitivity(GameData.currentGameFile.CameraSensitivity);
+            firstFrame = false;
+        }
+    }
+
 	// Things that need to happen after update/right before the camera renders.
 	// In this case, this ensures that the camera moves AFTER the ball, so it is always centered.
 	void LateUpdate ()
@@ -37,8 +56,17 @@ public class CameraController : MonoBehaviour {
 		// Detect whether the camera is looking straight up or straight down
 		Vector3 direction = (player.transform.position - gameObject.transform.position).normalized;
 
-        float moveHorizontal = Input.GetAxis("Camera Horizontal");
-        float moveVertical = Input.GetAxis("Camera Vertical");
+        InputDevice device = InputManager.ActiveDevice;
+
+        //Joystick input
+        float moveHorizontal = device.RightStick.X *4/5 * camSens;
+        float moveVertical = -device.RightStick.Y *4/5 * camSens;
+
+        //Keyboard input
+        if (moveHorizontal == 0f && moveVertical == 0f) {
+            moveHorizontal = Input.GetAxis("Camera Horizontal") * camSens;
+            moveVertical = Input.GetAxis("Camera Vertical") * camSens;
+        }
 
         //rotate horizontal
         offset = Quaternion.AngleAxis(moveHorizontal * turnSpeed, Vector3.up) * offset;
@@ -75,6 +103,15 @@ public class CameraController : MonoBehaviour {
         if (turnCoefficient < 1f) turnCoefficient += START_TURN_COEFFICIENT * Mathf.Lerp(0f, 1f, 1 - (turnCoefficient/1f));
         if (turnCoefficient > 1f) turnCoefficient = 1f;
         return turnCoefficient;
+    }
+
+    // sliderVal should be between 0f and 1f.
+    // Here, we translate it to the appropriate value.
+    public void SetCameraSensitivity(float sliderVal) {
+        // slider = 0f, sens is .2
+        // slider = .5f, sens is 1
+        //slider = 1f, sens is 1.8
+        camSens = (sliderVal * 8 / 5) + .2f;
     }
 }
 
